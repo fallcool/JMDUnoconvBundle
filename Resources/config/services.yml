@@ -1,0 +1,6 @@
+services:
+    jmd_unoconv:
+        class: JMD\UnoconvBundle\Service\Unoconv
+        arguments:
+          - '%jmd_unoconv.config%'
+          - '@logger'
