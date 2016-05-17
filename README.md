@@ -26,5 +26,11 @@ jmd_unoconv:
 ## Usage
 ```php
 $unoconv = $this->get('jmd_unoconv');
-$unoconv->transcode($inputFile, $format, $outputFile);
+$unoconv->convert($inputFile, $format);
+$unoconv->convert($inputFile, $format, $outputFile);
+```
+
+Console command:
+```bash
+php app/console jmd:unoconv:convert format /path/to/some/input_File -o /path/to/output/file
 ```

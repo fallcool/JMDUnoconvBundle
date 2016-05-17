@@ -84,11 +84,27 @@ class Unoconv
     }
 
     /**
+     * @param $inputFile
+     * @param $format
+     * @param null $outputFile
+     * @return \Unoconv\Unoconv
+     */
+    public function convert($inputFile, $format, $outputFile = null)
+    {
+        if (null === $outputFile) {
+            $outputFile = $inputFile . '.' . $format;
+        }
+
+        $converter = $this->transcode($inputFile, $format, $outputFile);
+        return $converter;
+    }
+
+    /**
      * @param $name
      * @param array $arguments
      * @return \Unoconv\Unoconv
      */
-    function __call($name, array $arguments = [])
+    public function __call($name, array $arguments = [])
     {
         return call_user_func_array([ $this->unoconv, $name ], $arguments);
     }
